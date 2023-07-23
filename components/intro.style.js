@@ -1,14 +1,20 @@
 import { StyleSheet } from "react-native";
-import { SIZES } from "../theme";
+import { COLORS, SIZES } from "../theme";
 
 const styles = StyleSheet.create({
-    introText: (clr, mt) => ({
-      margin: mt - 5,
+    introText: {
+      marginTop: SIZES.medium,
       marginHorizontal: 18,
       fontSize: SIZES.xLarge,
-      color: clr,
+      color: COLORS.primary,
       fontFamily: "bold"
-    })
+    },
+    mainText: {
+        marginHorizontal: 18,
+        fontSize: SIZES.xLarge,
+        color: COLORS.secondary,
+        fontFamily: "bold"
+    }
  });
 
  export default styles;

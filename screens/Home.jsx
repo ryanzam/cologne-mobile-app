@@ -6,6 +6,8 @@ import { View } from "react-native";
 import { Entypo, Fontisto } from "@expo/vector-icons";
 import Intro from "../components/Intro";
 import Carousel from "../components/Carousel";
+import Featured from "../components/Featured";
+import FeaturedItems from "../components/FeaturedItems";
 
 const Home = () => {
     return(
@@ -27,6 +29,8 @@ const Home = () => {
             <ScrollView>
                 <Intro />
                 <Carousel />
+                <Featured />
+                <FeaturedItems />
             </ScrollView>
         </SafeAreaView>
     )
