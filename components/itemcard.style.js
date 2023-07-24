@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         marginTop:SIZES.medium,
         height:230,
         width: 150,
-        backgroundColor: COLORS.secondary,
+        backgroundColor: COLORS.tertiary,
         marginEnd: 20,
         borderRadius: SIZES.small
     },

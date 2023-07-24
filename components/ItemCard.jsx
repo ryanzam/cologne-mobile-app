@@ -1,11 +1,14 @@
 import React from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import styles from "./itemcard.style";
-
+import { useNavigation } from "@react-navigation/native";
 
 const ItemCard = () => {
+
+    const navigation = useNavigation();
+
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ItemDetails")}>
             <View style={styles.container}>
                 <View style={styles.imgContainer}>
                     <Image 

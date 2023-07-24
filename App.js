@@ -4,6 +4,8 @@ import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNavigation from "./navigations/BottomNavigation";
+import ItemDetails from "./components/ItemDetails";
+import Home from "./screens/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +28,11 @@ export default function App() {
         <Stack.Screen 
           name="Bottom Nav"
           component={BottomNavigation}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="ItemDetails"
+          component={ItemDetails}
           options={{ headerShown: false}}
         />
       </Stack.Navigator>
