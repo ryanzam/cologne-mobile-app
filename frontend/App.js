@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNavigation from "./navigations/BottomNavigation";
 import ItemDetails from "./components/itemdetails/ItemDetails";
+import LatestPopularItems from "./screens/LatestPopularItems";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ export default function App() {
         <Stack.Screen 
           name="ItemDetail"
           component={ItemDetails}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="LatestItems"
+          component={LatestPopularItems}
           options={{ headerShown: false}}
         />
       </Stack.Navigator>
