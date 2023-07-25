@@ -1,11 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
-import styles from "./featured.style";
+import styles from "./latestitems.style";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../theme";
+import { COLORS } from "../../theme";
 
-const Featured = () => {
+const LatestItems = () => {
     return(
         <View style={styles.container}>
            <View style={styles.featured}>
@@ -18,4 +18,4 @@ const Featured = () => {
     )
 }
 
-export default Featured;
+export default LatestItems;

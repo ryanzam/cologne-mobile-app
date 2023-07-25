@@ -2,15 +2,18 @@ import { Ionicons, AntDesign, Feather } from "@expo/vector-icons";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Text, View, Image, Button } from "react-native";
-import { COLORS } from "../theme";
+import { COLORS } from "../../theme";
 import styles from "./itemdetails.style";
+import { useRoute } from "@react-navigation/native";
 
 const ItemDetails = ({navigation}) => {
+    const route = useRoute();
+    const { item } = route.params;
 
     return(
         <View style={styles.container}>
             <View style={styles.topBar}>
-                <TouchableOpacity OnPress={() => navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Ionicons name="arrow-back-circle" size={32} color={COLORS.primary}/>
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -19,13 +22,13 @@ const ItemDetails = ({navigation}) => {
             </View>
             <Image 
                 style={styles.img}
-                source={{uri: 'https://img.freepik.com/free-photo/front-view-elegant-perfume-colored-flowers-beige-ombre-background_140725-145231.jpg'}} 
+                source={{uri: item.imgUrl}} 
             />
             <View style={styles.itemDetails}>
                 <View style={styles.itemTitle}>
-                    <Text style={styles.itemName}>Armani Code</Text>
+                    <Text style={styles.itemName}>{item.name}</Text>
                     <View>
-                        <Text style={styles.itemPrice}>$99.00</Text>
+                        <Text style={styles.itemPrice}>${item.price}</Text>
                     </View>
                 </View>
 
@@ -52,7 +55,7 @@ const ItemDetails = ({navigation}) => {
                 </View>
 
                 <View style={styles.desSection}>
-                    <Text style={styles.description}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque corporis id, quis dolorum tempora ratione natus. Culpa quisquam quas illum maiores, voluptatum est error autem, sunt tempora expedita odit temporibus?</Text>
+                    <Text style={styles.description}>{item.description}</Text>
                 </View>
 
                 <View style={styles.buySection}>

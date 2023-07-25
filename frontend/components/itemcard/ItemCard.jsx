@@ -3,22 +3,22 @@ import { Text, View, TouchableOpacity, Image } from "react-native";
 import styles from "./itemcard.style";
 import { useNavigation } from "@react-navigation/native";
 
-const ItemCard = () => {
+const ItemCard = ({ item }) => {
 
     const navigation = useNavigation();
 
     return(
-        <TouchableOpacity onPress={() => navigation.navigate("ItemDetails")}>
+        <TouchableOpacity onPress={() => navigation.navigate("ItemDetail", {item})}>
             <View style={styles.container}>
                 <View style={styles.imgContainer}>
                     <Image 
                         style={styles.img}
-                        source={{uri: 'https://img.freepik.com/free-photo/front-view-elegant-perfume-colored-flowers-beige-ombre-background_140725-145231.jpg'}} 
+                        source={{uri: item.imgUrl }} 
                     />
                 </View>
                 <View style={styles.itemDetails}>
-                    <Text style={styles.itemTitle}>Item name</Text>
-                    <Text style={styles.itemPrice}>Price</Text>
+                    <Text style={styles.itemTitle} numberOfLines={1}>{item.name}</Text>
+                    <Text style={styles.itemPrice} numberOfLines={1}>$ {item.price}</Text>
                 </View>
             </View>
         </TouchableOpacity>

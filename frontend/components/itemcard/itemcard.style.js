@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS, SIZES } from "../theme";
+import { COLORS, SIZES } from "../../theme";
 
 const styles = StyleSheet.create({
     container: {

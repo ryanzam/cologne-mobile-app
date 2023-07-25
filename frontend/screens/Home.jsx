@@ -4,10 +4,10 @@ import styles from "./home.style";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View } from "react-native";
 import { Entypo, Fontisto } from "@expo/vector-icons";
-import Intro from "../components/Intro";
+import Intro from "../components/intro/Intro";
 import Carousel from "../components/Carousel";
-import Featured from "../components/Featured";
-import FeaturedItems from "../components/FeaturedItems";
+import FeaturedItems from "../components/featureditems/FeaturedItems";
+import LatestItems from "../components/latestitems/LatestItems";
 
 const Home = () => {
     return(
@@ -29,7 +29,7 @@ const Home = () => {
             <ScrollView>
                 <Intro />
                 <Carousel />
-                <Featured />
+                <LatestItems />
                 <FeaturedItems />
             </ScrollView>
         </SafeAreaView>
