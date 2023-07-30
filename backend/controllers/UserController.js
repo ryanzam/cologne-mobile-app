@@ -4,6 +4,9 @@ module.exports = {
     getUser: async(req, res) => {
         try {
             const user = await User.findById(req.params.id);
+            
+            if(!user) res.status(401).json({ message: "User not found."}) 
+            
             const { password, ...usrdata } = user._doc;
             res.status(200).json(usrdata)
         } catch (error) {
