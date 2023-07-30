@@ -1,4 +1,3 @@
-const Item = require("../models/Items");
 const Basket = require("../models/Basket");
 
 module.exports = {

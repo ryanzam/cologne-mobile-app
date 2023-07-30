@@ -7,6 +7,7 @@ const itemRouter = require("./routes/items");
 const authRouter = require("./routes/authenticate");
 const userRouter = require("./routes/user");
 const basketRouter = require("./routes/basket");
+const orderRouter = require("./routes/order");
 
 const PORT = 3000;
 
@@ -25,5 +26,6 @@ app.use("/api/items", itemRouter);
 app.use("/api/", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/basket", basketRouter);
+app.use("/api/orders", orderRouter);
 
 app.listen(process.env.PORT || PORT, () => console.log("Server listening on port: " + process.env.PORT))
