@@ -11,7 +11,7 @@ import LatestItems from "../components/latestitems/LatestItems";
 
 const Home = () => {
     return(
-        <SafeAreaView>
+        <SafeAreaView edges={["top"]}>
             <View style={styles.topBarWrapper}>
                 <View style={styles.topBar}>
                     <Entypo name="colours" size={24}/>

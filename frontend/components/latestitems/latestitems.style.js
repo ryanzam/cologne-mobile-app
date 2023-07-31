@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: SIZES.large,
-        fontFamily:"semibold"
+        fontFamily:"semibold",
+        color: COLORS.primary
     }
  });
 

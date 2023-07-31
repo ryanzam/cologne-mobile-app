@@ -6,6 +6,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNavigation from "./navigations/BottomNavigation";
 import ItemDetails from "./components/itemdetails/ItemDetails";
 import LatestPopularItems from "./screens/LatestPopularItems";
+import SignIn from "./screens/SignIn";
+import MyOrders from "./screens/MyOrders";
+import MyFavorites from "./screens/MyFavorites";
+import MyBasket from "./screens/MyBasket";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +42,26 @@ export default function App() {
         <Stack.Screen 
           name="LatestItems"
           component={LatestPopularItems}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="SignIn"
+          component={SignIn}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="MyOrders"
+          component={MyOrders}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="MyFavorites"
+          component={MyFavorites}
+          options={{ headerShown: false}}
+        />
+        <Stack.Screen 
+          name="MyBasket"
+          component={MyBasket}
           options={{ headerShown: false}}
         />
       </Stack.Navigator>

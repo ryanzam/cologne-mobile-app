@@ -27,7 +27,7 @@ const SearchItems = () => {
     }
 
     return(
-        <SafeAreaView>
+        <SafeAreaView edges={["top"]}>
             <View style={styles.container}>
                 <View style={styles.searchWrapper}>
                     <TextInput 
