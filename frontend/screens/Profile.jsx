@@ -53,15 +53,14 @@ const Profile = ({ navigation }) => {
                             {signedIn ? user.name : "Sign in to your account."}
                         </Text>
                         {!signedIn &&
-                                <TouchableOpacity onPress={() => navigation.navigate("SignI n")}>
+                                <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
                                     <View style={styles.signin }>
                                         <Text style={styles.signinTxt}>Sign in</Text>
                                     </View>
                                 </TouchableOpacity>}
-                        {!signedIn }
                     </View>
 
-                    <View style={styles.profileItemsWrapper}>
+                    {signedIn && <View style={styles.profileItemsWrapper}>
                         <TouchableOpacity onPress={() => navigation.navigate("MyFavorites")}>
                             <View style={styles.profileItems}>
                                 <Ionicons name="heart-circle-outline"
@@ -102,7 +101,7 @@ const Profile = ({ navigation }) => {
                                 <Text style={styles.profileItemsTxt}>Sign Out</Text>
                             </View>
                         </TouchableOpacity>
-                    </View>
+                    </View>}
 
                 </View>
             </View>

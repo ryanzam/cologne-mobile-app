@@ -17,7 +17,8 @@ const COLORS = {
     tertiary: "#00457E",
     accent: "#B9848C",
     white: "#FFFFFF",
-    black: "#00000"
+    black: "#00000",
+    gray: "#D8D9DA"
 }
 
 export { SIZES, COLORS }

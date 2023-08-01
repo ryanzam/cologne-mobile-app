@@ -5,6 +5,7 @@ import { Text, View, Image, Button } from "react-native";
 import { COLORS } from "../../theme";
 import styles from "./itemdetails.style";
 import { useRoute } from "@react-navigation/native";
+import { BackButton } from "../buttons/Buttons";
 
 const ItemDetails = ({navigation}) => {
     const route = useRoute();
@@ -13,9 +14,7 @@ const ItemDetails = ({navigation}) => {
     return(
         <View style={styles.container}>
             <View style={styles.topBar}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <Ionicons name="arrow-back-circle" size={32} color={COLORS.primary}/>
-                </TouchableOpacity>
+                <BackButton onPress={() => navigation.goBack()} color={COLORS.primary}/>
                 <TouchableOpacity>
                     <Ionicons name="heart" size={32} color={COLORS.primary}/>
                 </TouchableOpacity>
