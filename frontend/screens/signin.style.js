@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         alignItems: "center",
         borderWidth: 2,
-        marginBottom: 20,
+        marginBottom: 15,
         paddingHorizontal: 14,
         borderColor: borderColor
     }),
@@ -29,12 +29,20 @@ const styles = StyleSheet.create({
         height: "100%",
         flex: 1,
         fontFamily: "regular",
-        color: COLORS.primary
+        color: COLORS.primary,
+        borderColor: "green"
     },
     error: {
         fontFamily: "regular",
         color: "red",
         marginBottom: 15,
+    },
+    signup: {
+        textAlign: "center",
+        marginVertical: 20,
+        fontSize: SIZES.large,
+        fontFamily: "semibold",
+        color: COLORS.secondary
     }
 });
 

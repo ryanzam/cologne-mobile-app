@@ -8,21 +8,21 @@ export const BackButton = ({onPress, color}) => {
         </TouchableOpacity>
 }
 
-export const Button = ({onPress, text}) => {
-    return <TouchableOpacity onPress={onPress} style={styles.button}>
+export const Button = ({onPress, text, isEnabled }) => {
+    return <TouchableOpacity onPress={onPress} style={styles.button(!isEnabled ? COLORS.gray : COLORS.primary)}>
             <Text style={styles.text}>{text}</Text>
         </TouchableOpacity>
 }
 
 const styles = StyleSheet.create({
-    button:{
+    button: (backgroundColor) => ({
         height: 50,
         width: "100%",
-        backgroundColor: COLORS.primary,
+        backgroundColor: backgroundColor,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 15
-    },
+    }),
     text: {
         fontSize: SIZES.large,
         fontFamily: "semibold",

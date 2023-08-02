@@ -10,6 +10,8 @@ import SignIn from "./screens/SignIn";
 import MyOrders from "./screens/MyOrders";
 import MyFavorites from "./screens/MyFavorites";
 import MyBasket from "./screens/MyBasket";
+import SignUp from "./screens/SignUp";
+import { Toaster } from 'react-hot-toast';
 
 const Stack = createNativeStackNavigator();
 
@@ -64,7 +66,16 @@ export default function App() {
           component={MyBasket}
           options={{ headerShown: false}}
         />
+        <Stack.Screen 
+          name="SignUp"
+          component={SignUp}
+          options={{ headerShown: false}}
+        />
       </Stack.Navigator>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </NavigationContainer>
   );
 }
