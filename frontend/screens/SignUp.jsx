@@ -6,11 +6,39 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Entypo } from "@expo/vector-icons";
 import { useState } from "react";
+import { ActivityIndicator } from "react-native";
 
 const SignUp = ({navigation}) => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    const registerUser = async (formdata) => {
+        try {
+            setLoading(true);
+
+            const reqOpts = {
+                method: "POST", 
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify(formdata)
+            };
+            const res = await fetch("http://localhost:3000/api/register", reqOpts);
+            const data = await res.json()
+
+            if(res.status === 201 && data) {
+                setLoading(false);
+                toast.success(data.message);
+                navigation.goBack();
+            } 
+            if(!data) {
+                toast.error("Error creating account. Try again.")
+            }
+        } catch (error) {
+            toast.error(error.message)
+        } finally {
+            setLoading(false);
+        } 
+    }
 
     return <SafeAreaView>
                 <ScrollView>
@@ -23,9 +51,9 @@ const SignUp = ({navigation}) => {
                         <Formik 
                             initialValues={{username: '', email: '', password: ''}}
                             validationSchema={validationSchema}
-                            onSubmit={(values) => console.log(values)}
+                            onSubmit={(values) => registerUser(values)}
                         >
-                        {({ touched, handleChange, values, handleBlur, handleSubmit, errors, isValid, setFieldTouched }) => 
+                        {({ touched, handleChange, values, handleSubmit, errors, isValid, setFieldTouched }) => 
                             <View> 
                                 <View>
                                     <Text style={styles.controlsTxt}>Username</Text>
@@ -84,7 +112,7 @@ const SignUp = ({navigation}) => {
                                         <Text style={styles.error}>{errors.password}</Text>}
                                 </View>
 
-                                <Button onPress={isValid ? handleSubmit : null} text={"Register"} isEnabled={isValid} />
+                                <Button onPress={isValid ? handleSubmit : null} text={loading ? <ActivityIndicator /> : "Register"} isEnabled={isValid} />
                             </View>}
                         </Formik>
                     </View>

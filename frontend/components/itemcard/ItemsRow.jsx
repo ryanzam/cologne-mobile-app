@@ -2,7 +2,7 @@ import { Image, TouchableOpacity, View, Text } from "react-native"
 import styles from "./searcheditems.style"
 import { useNavigation } from "@react-navigation/native";
 
-const SearchedItems = ({ item }) => {
+const ItemsRow = ({ item }) => {
     const navigation = useNavigation();
 
     return <View>
@@ -21,4 +21,4 @@ const SearchedItems = ({ item }) => {
     </View>
 }
 
-export default SearchedItems;
+export default ItemsRow;

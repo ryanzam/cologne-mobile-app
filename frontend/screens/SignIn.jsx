@@ -27,15 +27,16 @@ const SignIn = ({navigation}) => {
             const res = await fetch("http://localhost:3000/api/signin", reqOpts);
             const data = await res.json()
 
-            if(res.status === 200) {
+            if(res.status === 200 && data) {
                 setLoading(false);
                 setResData(data);
                 toast.success(`Welcome, ${resData.username}`)
                 await AsyncStorage.setItem(resData._id, JSON.stringify(resData));
                 await AsyncStorage.setItem('id', JSON.stringify(resData._id));
                 navigation.replace("Bottom Nav")
-            } else {
-                toast.error(data.message)
+            } 
+            if(!data) {
+                toast.error("Error signin. Try again.")
             }
         } catch (error) {
             toast.error(error.message)
@@ -111,7 +112,7 @@ const SignIn = ({navigation}) => {
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().email('Email address is required.').required('Required'),
-    password: Yup.string().min(4, 'Password should be at least 8 characters long.').required('Required')
+    password: Yup.string().min(8, 'Password should be at least 8 characters long.').required('Required')
   })
 
 export default SignIn;

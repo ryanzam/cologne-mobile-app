@@ -4,7 +4,7 @@ import { View, TextInput, TouchableOpacity, FlatList, Text } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../theme";
 import styles from "./searchitems.style";
-import SearchedItems from "../components/itemcard/SearchedItems";
+import ItemsRow from "../components/itemcard/ItemsRow";
 
 const SearchItems = () => {
 
@@ -50,7 +50,7 @@ const SearchItems = () => {
                         <FlatList 
                             keyExtractor={(item) => item._id}
                             data={results}
-                            renderItem={({item}) => <SearchedItems item={item}/>}
+                            renderItem={({item}) => <ItemsRow item={item}/>}
                         />
             }
         </SafeAreaView>

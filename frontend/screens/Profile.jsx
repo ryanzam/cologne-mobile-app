@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, SafeAreaView, View, Image, TouchableOpacity, Alert, Platform } from "react-native";
 import styles from "./profile.style";
 import { StatusBar } from "expo-status-bar";
 import { COLORS, SIZES } from "../theme";
 import { Entypo, Ionicons, MaterialCommunityIcons  } from '@expo/vector-icons'; 
+import { toast } from "react-hot-toast";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Profile = ({ navigation }) => {
     const [user, setUser] = useState(null);
     const [signedIn, setSignedIn] = useState(false);
+
+    useEffect(() => {
+        async function isSignIn() {
+            const id = await AsyncStorage.getItem("id");
+            const signedInUser = await AsyncStorage.getItem(JSON.parse(id));
+            if(signedInUser) {
+                setUser(JSON.parse(signedInUser));
+                setSignedIn(true);
+            } 
+        }
+        isSignIn();
+    }, [signedIn])
 
     const deleteAccount = () => {
         if(Platform.OS !== "web") {
@@ -24,18 +38,29 @@ const Profile = ({ navigation }) => {
         }
     }
 
+    const signOutHandler = async () => {
+        try {
+            const id = await AsyncStorage.getItem("id");
+            await AsyncStorage.multiRemove(["id", JSON.parse(id)]);
+            toast.success("You are now signed out!");
+            navigation.replace("Bottom Nav");
+        } catch (error) {
+            toast.error(error)
+        }
+    }
+
     const signOut = () => {
         if(Platform.OS !== "web") {
             Alert.alert("Signout", 
             "Are you sure, you wanna signout?",
             [
                 { text: "Cancel", onPress: () => console.log("cancel")},
-                { text: "Sign Out", onPress: () => console.log("signout")},
+                { text: "Sign Out", onPress: () => signOutHandler()},
                 { defaultIndex: 1 }
             ]);
         } else {
             const res = window.confirm("Are you sure, you wanna signout?");
-            res ? console.log("yes") : console.log("no")
+            res ? signOutHandler() : console.log("no")
         }
     }
 
@@ -50,7 +75,7 @@ const Profile = ({ navigation }) => {
                     <View style={styles.profileWrapper}>
                         <Image style={styles.profileImg} source={require("../assets/images/profile.jpg")}/>
                         <Text style={styles.username}>
-                            {signedIn ? user.name : "Sign in to your account."}
+                            {signedIn ? user.username : "Sign in to your account."}
                         </Text>
                         {!signedIn &&
                                 <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>

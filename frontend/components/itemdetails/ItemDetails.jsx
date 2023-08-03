@@ -6,16 +6,37 @@ import { COLORS } from "../../theme";
 import styles from "./itemdetails.style";
 import { useRoute } from "@react-navigation/native";
 import { BackButton } from "../buttons/Buttons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { toast } from "react-hot-toast";
 
 const ItemDetails = ({navigation}) => {
+
     const route = useRoute();
     const { item } = route.params;
+
+    const addToFavorite = async() => {
+        const fav = await AsyncStorage.getItem("fav")
+        let newArr = [];
+        if(fav) {
+            const parsedFav = JSON.parse(fav)
+            const alreadyAdded = parsedFav.filter(p => p._id == item._id);
+            if(alreadyAdded.length > 0) {
+                toast("Already added to favorites");
+                return;
+            }
+            newArr = [item, ...parsedFav];
+            toast.success("Added to favorites.");
+        } else {
+            newArr.push(item);
+        }
+        await AsyncStorage.setItem("fav", JSON.stringify(newArr));
+    }
 
     return(
         <View style={styles.container}>
             <View style={styles.topBar}>
                 <BackButton onPress={() => navigation.goBack()} color={COLORS.primary}/>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => addToFavorite()}>
                     <Ionicons name="heart" size={32} color={COLORS.primary}/>
                 </TouchableOpacity>
             </View>
