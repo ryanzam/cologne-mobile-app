@@ -21,7 +21,7 @@ const MyFavorites = ({navigation}) => {
     const renderFavItems = () => {
         if(items == null || items.length == 0) {
             return <View>
-                    <Text>No favorite items.</Text>
+                    <Text style={{ textAlign: "center", fontFamily: "bold", color:COLORS.accent, paddingTop: 100  }}>No favorite items.</Text>
                 </View>
         }
         return <FlatList 

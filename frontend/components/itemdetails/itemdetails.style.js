@@ -70,13 +70,17 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     deliveryBtn: {
-        width: "40%",
-        borderRadius: SIZES.medium
+        borderRadius: SIZES.medium,
+        height: 35,
+        borderColor: COLORS.primary,
+        borderWidth: 2,
+        paddingHorizontal: 10,
+        paddingTop: 5
     },
     deliveryText : {
         paddingLeft: SIZES.xSmall,
-        fontSize:SIZES.large,
-        fontFamily: "regular",
+        fontSize:SIZES.medium,
+        fontFamily: "semibold",
         color: COLORS.tertiary
     }
 });
