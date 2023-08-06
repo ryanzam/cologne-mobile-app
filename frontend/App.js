@@ -9,7 +9,7 @@ import LatestPopularItems from "./screens/LatestPopularItems";
 import SignIn from "./screens/SignIn";
 import MyOrders from "./screens/MyOrders";
 import MyFavorites from "./screens/MyFavorites";
-import MyBasket from "./screens/MyBasket";
+import MyBasket from "./screens/MyBasket/MyBasket";
 import SignUp from "./screens/SignUp";
 import { Toaster } from 'react-hot-toast';
 

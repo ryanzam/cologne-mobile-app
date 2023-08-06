@@ -15,7 +15,7 @@ const app = express();
 
 dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log("connected to db"))
+    .then(() => console.log("connected, server running on http://localhost:3000"))
     .catch((e) => console.log(e));
 
 app.use(cors());

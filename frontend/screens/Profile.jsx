@@ -94,7 +94,7 @@ const Profile = ({ navigation }) => {
                                 <Text style={styles.profileItemsTxt}>My Favorites</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate("MyBasket")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("MyBasket", {userId : user._id})}>
                             <View style={styles.profileItems}>
                                 <Ionicons name="basket"
                                             size={SIZES.xLarge}
