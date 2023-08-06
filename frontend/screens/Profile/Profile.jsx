@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text, SafeAreaView, View, Image, TouchableOpacity, Alert, Platform } from "react-native";
 import styles from "./profile.style";
 import { StatusBar } from "expo-status-bar";
-import { COLORS, SIZES } from "../theme";
+import { COLORS, SIZES } from "../../theme";
 import { Entypo, Ionicons, MaterialCommunityIcons  } from '@expo/vector-icons'; 
 import { toast } from "react-hot-toast";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -70,10 +70,10 @@ const Profile = ({ navigation }) => {
                 <View>
                     <StatusBar backgroundColor={COLORS.tertiary}/>
                     <View>
-                        <Image style={styles.coverImg} source={require("../assets/images/abstract-colorful-splash.jpg")}/>
+                        <Image style={styles.coverImg} source={require("../../assets/images/abstract-colorful-splash.jpg")}/>
                     </View>
                     <View style={styles.profileWrapper}>
-                        <Image style={styles.profileImg} source={require("../assets/images/profile.jpg")}/>
+                        <Image style={styles.profileImg} source={require("../../assets/images/profile.jpg")}/>
                         <Text style={styles.username}>
                             {signedIn ? user.username : "Sign in to your account."}
                         </Text>

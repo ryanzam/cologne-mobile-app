@@ -45,13 +45,26 @@ const styles = StyleSheet.create({
         color: COLORS.tertiary
     },
     totalWrapper: {
-        padding: 20
+        padding: 20,
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
     total: {
         textAlign: "right",
         color: COLORS.secondary,
         fontSize: SIZES.medium,
         fontFamily: "bold"
+    },
+    checkoutBtn: {
+        borderColor: COLORS.primary,
+        borderWidth: 2,
+        borderRadius: 10
+    },
+    checkoutTxt: {
+        color: COLORS.primary,
+        fontSize: SIZES.medium,
+        fontFamily: "bold",
+        padding: 10
     }
 })
 

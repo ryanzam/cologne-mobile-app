@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { SIZES, COLORS } from "../theme";
+import { SIZES, COLORS } from "../../theme";
 
 const styles = StyleSheet.create({
     topBarWrapper: {

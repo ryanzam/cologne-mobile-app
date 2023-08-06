@@ -1,8 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Home from "../screens/Home";
-import Profile from "../screens/Profile";
+import Home from "../screens/Home/Home";
+import Profile from "../screens/Profile/Profile";
 import  { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../theme.js";
 import SearchItems from "../screens/SearchItems";

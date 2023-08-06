@@ -1,4 +1,4 @@
-import {Text, View, SafeAreaView, ActivityIndicator, Image} from "react-native";
+import {Text, View, SafeAreaView, ActivityIndicator, Image, TouchableOpacity} from "react-native";
 import styles from "../MyBasket/mybasket.style";
 import { BackButton } from "../../components/buttons/Buttons";
 import { COLORS, SIZES } from "../../theme";
@@ -47,12 +47,16 @@ const MyBasket = ({ navigation }) => {
         </>
     }
 
-    const renderSum = () => {
+    const renderCheckout = () => {
         if(data[0] == null) return
 
         let total =  data[0].items.reduce((acc, curr) => acc + (Number(curr.basketItem.price) * curr.amount), 0);
 
         return <View style={styles.totalWrapper}>
+            <TouchableOpacity style={styles.checkoutBtn}>
+                <Text style={styles.checkoutTxt}>Check out</Text>
+            </TouchableOpacity>
+
             <Text style={styles.total}>Total: {total}</Text>
         </View>
     }
@@ -63,7 +67,7 @@ const MyBasket = ({ navigation }) => {
             <Text style={styles.topBarText}>My Basket</Text>
         </View>
         {renderItems()}
-        {renderSum()}
+        {renderCheckout()}
     </SafeAreaView>
 }
 

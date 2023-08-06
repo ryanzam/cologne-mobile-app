@@ -4,10 +4,10 @@ import styles from "./home.style";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View } from "react-native";
 import { Entypo, Fontisto } from "@expo/vector-icons";
-import Intro from "../components/intro/Intro";
-import Carousel from "../components/Carousel";
-import FeaturedItems from "../components/featureditems/FeaturedItems";
-import LatestItems from "../components/latestitems/LatestItems";
+import Intro from "../../components/intro/Intro";
+import Carousel from "../../components/Carousel";
+import FeaturedItems from "../../components/featureditems/FeaturedItems";
+import LatestItems from "../../components/latestitems/LatestItems";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Home = () => {
